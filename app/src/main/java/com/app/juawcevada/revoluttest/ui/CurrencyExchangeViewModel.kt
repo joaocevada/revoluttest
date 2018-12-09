@@ -11,8 +11,9 @@ import com.app.juawcevada.revoluttest.ui.shared.ReceiveChannelLiveDataWrapper
 import com.app.juawcevada.revoluttest.ui.shared.ScopedViewModel
 import com.app.juawcevada.revoluttest.ui.shared.SnackbarMessage
 import com.app.juawcevada.revoluttest.ui.shared.ViewStateLiveData
-import com.app.juawcevada.rickspace.dispatchers.AppDispatchers
-import com.app.juawcevada.rickspace.event.Event
+import com.app.juawcevada.revoluttest.shared.AppDispatchers
+import com.app.juawcevada.revoluttest.shared.Event
+import com.app.juawcevada.revoluttest.R
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
@@ -58,9 +59,14 @@ class CurrencyExchangeViewModel @Inject constructor(
                 .map { it.applyValueFromList(currencyList) }
 
             newList.fold(
-                { copy(isLoading = false, errorMessage = it.toString()) },
-                { copy(isLoading = false, currencyList = it.sortByOldList(currencyList)) }
+                { copy(isLoading = false, errorMessage = if (currencyList == null) it.toString() else null) },
+                { copy(isLoading = false, currencyList = it.sortByOldList(currencyList), errorMessage = null) }
             )
+        }
+
+        _errorMessage.addSource(exchangeData) { currencyEntity ->
+            currencyEntity.toEither { _errorMessage.value = Event(SnackbarMessage(R.string.connection_error)) }
+
         }
         _viewState.addNewStateSource(currentValue) { newValue ->
             copy(currencyList = currencyList?.applyValue(newValue))
@@ -70,8 +76,8 @@ class CurrencyExchangeViewModel @Inject constructor(
         }
     }
 
-    override fun changeCurrency(newCurrencyCode: String) {
-        baseCurrency.postValue(newCurrencyCode)
+    override fun changeCurrency(newCurrency: ExchangeItem) {
+        baseCurrency.postValue(newCurrency.currencyCode)
     }
 
     override fun changeValue(newValue: Float) {

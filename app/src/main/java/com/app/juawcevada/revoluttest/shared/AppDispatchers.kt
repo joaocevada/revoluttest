@@ -1,4 +1,4 @@
-package com.app.juawcevada.rickspace.dispatchers
+package com.app.juawcevada.revoluttest.shared
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

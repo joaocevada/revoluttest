@@ -53,7 +53,6 @@ class CurrencyExchangeFragment : Fragment() {
                         viewModel::changeValue
                     ) { newCurrency ->
                         viewModel.changeCurrency(newCurrency)
-                        it.list.scrollToPosition(0)
                     }
                 }
 

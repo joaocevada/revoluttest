@@ -2,7 +2,7 @@ package com.app.juawcevada.revoluttest.data
 
 import arrow.core.Try
 import com.app.juawcevada.revoluttest.model.ExchangeEntity
-import com.app.juawcevada.rickspace.dispatchers.AppDispatchers
+import com.app.juawcevada.revoluttest.shared.AppDispatchers
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.produce

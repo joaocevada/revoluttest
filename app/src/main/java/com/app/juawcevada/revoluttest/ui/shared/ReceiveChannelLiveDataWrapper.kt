@@ -1,10 +1,9 @@
 package com.app.juawcevada.revoluttest.ui.shared
 
 import androidx.lifecycle.LiveData
-import com.app.juawcevada.rickspace.dispatchers.AppDispatchers
+import com.app.juawcevada.revoluttest.shared.AppDispatchers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ClosedReceiveChannelException
 import kotlinx.coroutines.channels.ReceiveChannel
@@ -15,7 +14,8 @@ import kotlinx.coroutines.launch
 class ReceiveChannelLiveDataWrapper<T>(
         private val coroutineScope: CoroutineScope,
         private val createDataChannel: () -> ReceiveChannel<T>,
-        private val appDispatchers: AppDispatchers): LiveData<T>() {
+        private val appDispatchers: AppDispatchers
+): LiveData<T>() {
 
     var currentDataChannel: ReceiveChannel<T>? = null
 

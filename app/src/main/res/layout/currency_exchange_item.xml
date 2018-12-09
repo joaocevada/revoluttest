@@ -79,7 +79,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="99,79"
-                android:text="@{String.valueOf(exchangeItem.value)}"
                 android:inputType="numberDecimal"
                 app:layout_constraintEnd_toEndOf="@+id/guideline_end"
                 app:layout_constraintTop_toTopOf="parent"
