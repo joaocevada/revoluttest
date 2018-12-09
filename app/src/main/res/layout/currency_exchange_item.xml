@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+>
+
+    <data>
+        <variable
+                name="exchangeItem"
+                type="com.app.juawcevada.revoluttest.ui.ExchangeItem"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="16dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="16dp"/>
+
+        <ImageView
+                android:id="@+id/flag_image"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                app:imageUrl="@{exchangeItem.imageUrl}"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top"
+                app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"/>
+
+        <TextView
+                android:id="@+id/currency_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="GBP"
+                android:text="@{exchangeItem.currencyCode}"
+                android:layout_marginStart="8dp"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/flag_image"
+                app:layout_constraintBottom_toTopOf="@+id/currency_name"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top"/>
+
+        <TextView
+                android:id="@+id/currency_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:text="British Pound"
+                android:text="@{exchangeItem.currencyName}"
+                android:layout_marginTop="8dp"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/flag_image"
+                app:layout_constraintTop_toBottomOf="@+id/currency_code"
+                app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"/>
+
+        <EditText
+                android:id="@+id/currency_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="99,79"
+                android:text="@{String.valueOf(exchangeItem.value)}"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
