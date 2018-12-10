@@ -14,10 +14,12 @@ import com.app.juawcevada.revoluttest.ui.shared.ViewStateLiveData
 import com.app.juawcevada.revoluttest.shared.AppDispatchers
 import com.app.juawcevada.revoluttest.shared.Event
 import com.app.juawcevada.revoluttest.R
+import com.app.juawcevada.revoluttest.testing.OpenClassOnDebug
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
+@OpenClassOnDebug
 class CurrencyExchangeViewModel @Inject constructor(
     private val getExchangeDataUseCase: GetExchangeDataUseCase,
     private val exchangeListMapper: ExchangeEntityToExchangeListMapper,

@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.app.juawcevada.revoluttest.databinding.CurrencyExchangeListFragmentBinding
 import com.app.juawcevada.rickspace.extensions.setUpSnackbar
 import com.app.juawcevada.rickspace.extensions.viewModelProvider
-import com.app.juawcevada.rickspace.ui.shared.FragmentDataBindingComponent
+import com.app.juawcevada.revoluttest.ui.shared.FragmentDataBindingComponent
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
