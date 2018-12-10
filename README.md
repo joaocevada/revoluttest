@@ -10,3 +10,6 @@ I used an MVVM architecture with an interface for actions and a ViewState for ho
 
 Regarding testing:
 I just implemented some basic UI and Unit tests just to show how this project can be tested. Also the UI tests can be run both on a physical device or using roboelectric without a physical device. 
+
+Regarding the UI:
+The RecyclerView animations are a lite bit "crude" and I hadn't time to implement a fix to the problem of when I add an element on the top of the RecyclerView the RecyclerView does not scroll to top.
